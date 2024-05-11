@@ -50,7 +50,7 @@ To use the backend API, send HTTP requests to the appropriate endpoints. The API
 - `POST /load_file/{llm}`: Loads the file uploaded by the user, splits the text into document chunks, and stores it into a vectorstore.
 - `POST /image/{llm}`: Loads the image uploaded by the user.
 - `POST /load_link/{llm}`: Loads the webpage link uploaded by the user, splits the text into document chunks, and stores it into a vectorstore.
-- `POST /answer_with_chat_history/{llm}`: Takes the user question, extracts the relevant content from the vector store through semantic search, and sends the question along with that retrieved content to the LLM to generate a response for the user.  
+- `POST /answer_with_chat_history/{llm}`: Takes the user question, extracts the relevant content from the vector store through semantic search, and sends the question along with that retrieved content to the LLM to generate a context aware comprehensive response for the user.  
 
 ## Documentation
 The backend API is documented using FastAPI's automatic documentation features. You can access the API documentation using the Swagger UI or ReDoc interface. Simply navigate to the appropriate URL after starting the API server.
