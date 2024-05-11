@@ -28,7 +28,7 @@ if "current_website" in st.session_state:
     current_website = st.session_state['current_website']
     if st.sidebar.button("Upload New Webpage Link"):
         st.switch_page("BrainBot.py")
-    st.subheader("Your website content has been uploaded successfully. You can now chat with it.")
+    st.subheader("Your webpage content has been uploaded successfully. You can now chat with it.")
     st.success(current_website)
     question = st.chat_input("Type your question here...")
 else:
