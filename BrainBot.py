@@ -94,7 +94,7 @@ with col3:
                     st.experimental_rerun()
             except Exception as e:
                 log_error(str(e))
-                st.switch_page("error.py")
+                st.switch_page("pages/error.py")
 with col4:
     if llm == "GROQ" or "api_key_flag" in st.session_state:
         # Select to upload file, image, or link to chat with them
@@ -143,7 +143,7 @@ if uploaded_file is not None:
             st.switch_page("pages/File-chat.py")
         except Exception as e:
             log_error(str(e))
-            st.switch_page("error.py")
+            st.switch_page("pages/error.py")
 
 ## IMAGE
 ## -------------------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ if uploaded_image is not None:
         temp_img_path = save_uploaded_image(uploaded_image)
     except Exception as e:
                 log_error(str(e))
-                st.switch_page("error.py")
+                st.switch_page("pages/error.py")
 
     st.session_state['temp_img_path'] = temp_img_path
     st.session_state['current_image'] = uploaded_image.name
@@ -184,6 +184,6 @@ if website_link is not None:
                     st.switch_page("pages/Web-chat.py")
             except Exception as e:
                 log_error(str(e))
-                st.switch_page("error.py")
+                st.switch_page("pages/error.py")
         else:
             st.error("Invalid URL. Please enter a valid URL.")
