@@ -26,7 +26,8 @@ def save_uploaded_file(uploaded_file):
     # os.makedirs(data_dir, exist_ok=True)
     
     # Create a temporary file in the data directory
-    with tempfile.NamedTemporaryFile(delete=False, dir=data_dir) as temp_file:
+    # with tempfile.NamedTemporaryFile(delete=False, dir=data_dir) as temp_file:
+     with tempfile.NamedTemporaryFile(delete=False) as temp_file:
         temp_file.write(file_content)  # Write the uploaded file content to the temporary file
         temp_file_path = temp_file.name  # Get the path of the temporary file
         print(temp_file_path)
@@ -40,7 +41,8 @@ def save_uploaded_image(uploaded_image):
     # os.makedirs(images_dir, exist_ok=True)
     
     # Create a temporary file path within the "images" directory with .png extension
-    temp_file_path = os.path.join(images_dir, tempfile.NamedTemporaryFile(suffix=".png").name)
+    # temp_file_path = os.path.join(images_dir, tempfile.NamedTemporaryFile(suffix=".png").name)
+    temp_file_path = os.path.join(tempfile.NamedTemporaryFile(suffix=".png").name)
     
     # Write the uploaded image content to the temporary file
     with open(temp_file_path, "wb") as temp_file:
