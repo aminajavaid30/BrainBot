@@ -21,7 +21,8 @@ def save_uploaded_file(uploaded_file):
     file_content = uploaded_file.read()  # Load the document
     
     # Create a directory if it doesn't exist
-    data_dir = "/data"
+    # data_dir = "/data"
+    data_dir = ""
     # os.makedirs(data_dir, exist_ok=True)
     
     # Create a temporary file in the data directory
@@ -34,7 +35,8 @@ def save_uploaded_file(uploaded_file):
 # Function to save the uploaded image as a temporary file  and return its path.
 def save_uploaded_image(uploaded_image):
     # Create a directory named "images" if it doesn't exist
-    images_dir = "/images"
+    # images_dir = "/images"
+    images_dir = ""
     # os.makedirs(images_dir, exist_ok=True)
     
     # Create a temporary file path within the "images" directory with .png extension
