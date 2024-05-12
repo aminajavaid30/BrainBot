@@ -22,7 +22,7 @@ def save_uploaded_file(uploaded_file):
     
     # Create a directory if it doesn't exist
     data_dir = "/data"
-    # os.makedirs(data_dir, exist_ok=True)
+    os.makedirs(data_dir, exist_ok=True)
     
     # Create a temporary file in the data directory
     with tempfile.NamedTemporaryFile(delete=False, dir=data_dir) as temp_file:
@@ -34,7 +34,7 @@ def save_uploaded_file(uploaded_file):
 def save_uploaded_image(uploaded_image):
     # Create a directory named "images" if it doesn't exist
     images_dir = "/images"
-    # os.makedirs(images_dir, exist_ok=True)
+    os.makedirs(images_dir, exist_ok=True)
     
     # Create a temporary file path within the "images" directory with .png extension
     temp_file_path = os.path.join(images_dir, tempfile.NamedTemporaryFile(suffix=".png").name)
