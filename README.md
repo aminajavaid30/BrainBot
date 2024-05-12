@@ -23,7 +23,6 @@ This application allows users to chat with their documents, images or webpages b
   - [Usage](#usage)
   - [Documentation](#documentation)
   - [Building and Running the Docker Container](#building-and-running-the-docker-container)
-  - [Testing the API](#testing-the-api)
   - [Interacting with the API](#interacting-with-the-api)
   - [Acknowledgments](#acknowledgments)
   - [References](#references)
@@ -72,13 +71,6 @@ To build and run the Docker container, follow these steps:
 4. The application Streamlit frontend will be avaialble at `http://localhost:8501`
 5. The API will be available at `http://localhost:8000`
 6. The API documentaion will be avaialable at `http://localhost:8000/docs` or `http://localhost:8000/redoc`
-
-## Testing the API
-Test the API using the following command:
-```
-pytest
-```
-It will automatically run the predefined test cases.
    
 ## Interacting with the API
 Once the application is running, you can interact with it through the Streamlit frontend. To interact with the API, yopu can send HTTP requests through Swagger UI.
