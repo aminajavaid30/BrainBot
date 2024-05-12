@@ -27,7 +27,7 @@ def save_uploaded_file(uploaded_file):
     
     # Create a temporary file in the data directory
     # with tempfile.NamedTemporaryFile(delete=False, dir=data_dir) as temp_file:
-     with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+    with tempfile.NamedTemporaryFile(delete=False) as temp_file:
         temp_file.write(file_content)  # Write the uploaded file content to the temporary file
         temp_file_path = temp_file.name  # Get the path of the temporary file
         print(temp_file_path)
