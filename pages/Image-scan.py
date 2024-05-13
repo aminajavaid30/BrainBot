@@ -55,7 +55,9 @@ if "temp_img_path" in st.session_state and st.session_state['uploaded_image'] ==
 
     try:
         # Send POST request to a FastAPI endpoint with temporary image path
-        FASTAPI_URL = f"http://localhost:8000/image/{llm}"
+        # FASTAPI_URL = f"http://localhost:8000/image/{llm}"
+        FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/image/{llm}"
+        
         with st.spinner("Interpreting image..."):
             response = requests.post(FASTAPI_URL, json={"image_path": temp_img_path})
             # Append the image and response to the chat history
