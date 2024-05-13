@@ -46,6 +46,13 @@ def save_uploaded_image(uploaded_image):
         temp_file.write(uploaded_image.read())
     return temp_file_path
 
+# Function to save the uploaded file on the server and return its path
+def save_uploaded_file_on_server(uploaded_file):
+    # POST request to FastAPI endpoint
+    response = requests.post("https://huggingface.co/spaces/aminaj/BrainBot/upload-file-on-server", files={"file": uploaded_file})
+    temp_file_path = response
+    return temp_file_path
+
 ## LOGO and TITLE
 ## -------------------------------------------------------------------------------------------
 # Show the logo and title side by side
