@@ -69,4 +69,4 @@ if "temp_img_path" in st.session_state and st.session_state['uploaded_image'] ==
                 st.markdown(formatted_response)
     except Exception as e:
         log_error(str(e))
-        st.switch_page("error.py")
+        st.switch_page("pages/error.py")
