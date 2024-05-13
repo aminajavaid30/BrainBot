@@ -147,13 +147,8 @@ if uploaded_file is not None:
     with st.spinner("Loading file..."):
         # Save the uploaded file to a temporary path
         # temp_file_path = save_uploaded_file(uploaded_file)
-        try:
-            # Save the uploaded file to a temporary path
-            temp_file_path = save_uploaded_file_on_server(uploaded_file)
-        except Exception as e:
-            st.write(str(e))
-            #log_error(str(e))
-            #st.switch_page("pages/error.py")
+        # Save the uploaded file to a temporary path
+        temp_file_path = save_uploaded_file_on_server(uploaded_file)
             
         try:    
             # Send POST request to a FastAPI endpoint to load the file into a vectorstore
