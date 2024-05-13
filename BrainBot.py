@@ -48,10 +48,15 @@ def save_uploaded_image(uploaded_image):
 
 # Function to save the uploaded file on the server and return its path
 def save_uploaded_file_on_server(uploaded_file):
-    # POST request to FastAPI endpoint
-    response = requests.post("https://huggingface.co/spaces/aminaj/BrainBot/upload_file_on_server", files={"file": uploaded_file})
-    st.write(response)
-    temp_file_path = response.filename
+    temp_file_path = ""
+    try:
+        # POST request to FastAPI endpoint
+        response = requests.post("https://huggingface.co/spaces/aminaj/BrainBot/upload_file_on_server", files={"file": uploaded_file})
+        st.write(response)
+        temp_file_path = response.filename
+    except Exception as e: 
+        st.write(str(e))
+        
     return temp_file_path
 
 ## LOGO and TITLE
