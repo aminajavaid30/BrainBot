@@ -62,7 +62,8 @@ if question is not None:
     try:
         # Send POST request to a FastAPI endpoint to retrieve an answer for the question
         data = {"question": question, "resource": resource}
-        FASTAPI_URL = f"http://localhost:8000/answer_with_chat_history/{llm}"
+        # FASTAPI_URL = f"http://localhost:8000/answer_with_chat_history/{llm}"
+        FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/answer_with_chat_history/{llm}"
 
         with st.spinner("Generating response..."):
             response = requests.post(FASTAPI_URL, json=data)
