@@ -87,7 +87,8 @@ with col3:
         # variable
         with st.spinner("Activating OpenAI API..."):
             try:
-                FASTAPI_URL = "http://localhost:8000/set_api_key"
+                # FASTAPI_URL = "http://localhost:8000/set_api_key"
+                FASTAPI_URL = "https://huggingface.co/spaces/aminaj/BrainBot/set_api_key"
                 data = {"api_key": openai_api_key}
                 if openai_api_key:
                     response = requests.post(FASTAPI_URL, json=data)
