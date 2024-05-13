@@ -139,8 +139,12 @@ if 'web_chat_history' not in st.session_state:
 st.session_state['uploaded_file'] = False
 if uploaded_file is not None: 
     with st.spinner("Loading file..."):
-        # Save the uploaded file to a temporary path
-        temp_file_path = save_uploaded_file(uploaded_file)
+        try:
+            # Save the uploaded file to a temporary path
+            temp_file_path = save_uploaded_file_on_server(uploaded_file)
+        except Exception as e:
+            log_error(str(e))
+            st.switch_page("pages/error.py")
             
         try:    
             # Send POST request to a FastAPI endpoint to load the file into a vectorstore
