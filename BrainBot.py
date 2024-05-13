@@ -53,7 +53,7 @@ def save_uploaded_file_on_server(uploaded_file):
         # POST request to FastAPI endpoint
         response = requests.post("https://huggingface.co/spaces/aminaj/BrainBot/upload_file_on_server", files={"file": uploaded_file})
         st.write(response)
-        temp_file_path = response.filename
+        temp_file_path = response
     except Exception as e: 
         st.write(str(e))
         
