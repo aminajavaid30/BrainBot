@@ -147,7 +147,7 @@ if uploaded_file is not None:
             temp_file_path = save_uploaded_file_on_server(uploaded_file)
         except Exception as e:
             st.write(str(e))
-            log_error(str(e))
+            #log_error(str(e))
             #st.switch_page("pages/error.py")
             
         try:    
