@@ -107,7 +107,7 @@ with col3:
                     response = requests.post(FASTAPI_URL, json=data)
                     st.sidebar.success(response.text)
                     st.session_state['api_key_flag'] = True
-                    st.experimental_rerun()
+                    # st.experimental_rerun()
             except Exception as e:
                 log_error(str(e))
                 st.switch_page("pages/error.py")
