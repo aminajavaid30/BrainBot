@@ -179,7 +179,7 @@ if website_link is not None:
                 # Send POST request to a FastAPI endpoint to scrape the webpage and load its text 
                 # into a vector store
                 # FASTAPI_URL = f"http://localhost:8000/load_link/{llm}"
-                FASTAPI_URL = "https://huggingface.co/spaces/aminaj/BrainBot/load_link/{llm}"
+                FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/load_link/{llm}"
                 data = {"website_link": website_link}
                 with st.spinner("Loading website..."):
                     response = requests.post(FASTAPI_URL, json=data)
