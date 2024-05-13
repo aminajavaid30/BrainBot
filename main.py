@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, File, UploadFile
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from langchain_community.document_loaders import PyPDFLoader
@@ -92,6 +92,16 @@ async def welcome():
 async def set_api_key(api_key: APIKey):
     os.environ["OPENAI_API_KEY"] = api_key.api_key
     return "API key set successfully!"
+
+## POST - /upload_file_on_server
+@app.post("/upload_file_on_server")
+async def upload_file_on_server(file: UploadFile = File(...)):
+    # Save the uploaded file to a temporary location
+    with open(file.filename, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    
+    # Return a response
+    return {"filename": file.filename, "message": "File uploaded successfully"}
 
 ## POST - /load_file
 # Load the file, split it into document chunks, and upload the document embeddings into a vectorstore   
