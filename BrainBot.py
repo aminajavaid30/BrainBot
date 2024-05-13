@@ -138,7 +138,8 @@ if uploaded_file is not None:
         try:    
             # Send POST request to a FastAPI endpoint to load the file into a vectorstore
             data = {"file_path": temp_file_path, "file_type": uploaded_file.type}
-            FASTAPI_URL = f"http://localhost:8000/load_file/{llm}"
+            # FASTAPI_URL = f"http://localhost:8000/load_file/{llm}"
+            FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/load_file/{llm}"
             response = requests.post(FASTAPI_URL, json=data)
             st.success(response.text)
             st.session_state['current_file'] = uploaded_file.name
