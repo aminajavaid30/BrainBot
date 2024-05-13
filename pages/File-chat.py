@@ -76,4 +76,4 @@ if question is not None:
                 st.markdown(formatted_response)
     except Exception as e:
                 log_error(str(e))
-                st.switch_page("error.py")
+                st.switch_page("pages/error.py")
