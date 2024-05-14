@@ -21,8 +21,7 @@ def save_uploaded_file(uploaded_file):
     file_content = uploaded_file.read()  # Load the document
     
     # Create a directory if it doesn't exist
-    # data_dir = "/data"
-    data_dir = "data"
+    data_dir = "/data"
     os.makedirs(data_dir, exist_ok=True)
     
     # Create a temporary file in the data directory
@@ -34,8 +33,7 @@ def save_uploaded_file(uploaded_file):
 # Function to save the uploaded image as a temporary file  and return its path.
 def save_uploaded_image(uploaded_image):
     # Create a directory named "images" if it doesn't exist
-    # images_dir = "/images"
-    images_dir = "images"
+    images_dir = "/images"
     os.makedirs(images_dir, exist_ok=True)
     
     # Create a temporary file path within the "images" directory with .png extension
@@ -44,19 +42,6 @@ def save_uploaded_image(uploaded_image):
     # Write the uploaded image content to the temporary file
     with open(temp_file_path, "wb") as temp_file:
         temp_file.write(uploaded_image.read())
-    return temp_file_path
-
-# Function to save the uploaded file on the server and return its path
-def save_uploaded_file_on_server(uploaded_file):
-    temp_file_path = ""
-    try:
-        # POST request to FastAPI endpoint
-        response = requests.post("https://huggingface.co/spaces/aminaj/BrainBot/upload_file_on_server", files={"file": uploaded_file})
-        st.write(response)
-        temp_file_path = response
-    except Exception as e: 
-        st.write(str(e))
-        
     return temp_file_path
 
 ## LOGO and TITLE
@@ -100,14 +85,13 @@ with col3:
         # variable
         with st.spinner("Activating OpenAI API..."):
             try:
-                # FASTAPI_URL = "http://localhost:8000/set_api_key"
-                FASTAPI_URL = "https://huggingface.co/spaces/aminaj/BrainBot/set_api_key"
+                FASTAPI_URL = "http://localhost:8000/set_api_key"
                 data = {"api_key": openai_api_key}
                 if openai_api_key:
                     response = requests.post(FASTAPI_URL, json=data)
                     st.sidebar.success(response.text)
                     st.session_state['api_key_flag'] = True
-                    # st.experimental_rerun()
+                    st.experimental_rerun()
             except Exception as e:
                 log_error(str(e))
                 st.switch_page("pages/error.py")
@@ -146,20 +130,17 @@ st.session_state['uploaded_file'] = False
 if uploaded_file is not None: 
     with st.spinner("Loading file..."):
         # Save the uploaded file to a temporary path
-        # temp_file_path = save_uploaded_file(uploaded_file)
-        # Save the uploaded file to a temporary path
-        temp_file_path = save_uploaded_file_on_server(uploaded_file)
+        temp_file_path = save_uploaded_file(uploaded_file)
                 
         try:    
             # Send POST request to a FastAPI endpoint to load the file into a vectorstore
             data = {"file_path": temp_file_path, "file_type": uploaded_file.type}
-            # FASTAPI_URL = f"http://localhost:8000/load_file/{llm}"
-            FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/load_file/{llm}"
-            # response = requests.post(FASTAPI_URL, json=data)
-            # st.success(response.text)
-            # st.session_state['current_file'] = uploaded_file.name
-            # st.session_state['uploaded_file'] = True
-            # st.switch_page("pages/File-chat.py")
+            FASTAPI_URL = f"http://localhost:8000/load_file/{llm}"
+            response = requests.post(FASTAPI_URL, json=data)
+            st.success(response.text)
+            st.session_state['current_file'] = uploaded_file.name
+            st.session_state['uploaded_file'] = True
+            st.switch_page("pages/File-chat.py")
         except Exception as e:
             log_error(str(e))
             st.switch_page("pages/error.py")
@@ -193,8 +174,7 @@ if website_link is not None:
             try:
                 # Send POST request to a FastAPI endpoint to scrape the webpage and load its text 
                 # into a vector store
-                # FASTAPI_URL = f"http://localhost:8000/load_link/{llm}"
-                FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/load_link/{llm}"
+                FASTAPI_URL = f"http://localhost:8000/load_link/{llm}"
                 data = {"website_link": website_link}
                 with st.spinner("Loading website..."):
                     response = requests.post(FASTAPI_URL, json=data)
