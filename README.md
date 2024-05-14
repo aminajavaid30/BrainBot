@@ -4,7 +4,7 @@ BrainBot is an AI learning assistant utilizing the capabilities of Natural Langu
 **LangChain, FastAPI, Docker, LangSmith and LLMs (GPT-4 and GROQ)**
 
 This application allows users to chat with their documents, images or webpages by asking questions about them. The documents could be pdfs, word docs, text files, html files or power point presentations. Users can upload any image to interpret it or a webpage link to chat with it.
-- Supported file formates are PDF, DOCS, TXT, PPTX HTML
+- Supported file formats are PDF, DOCS, TXT, PPTX HTML
 - Supported image formats are PNG, JPG, JPEG
 - The application's frontend has been built using Streamlit.
 - The application's backend has been built using FastAPI and LangChain.
