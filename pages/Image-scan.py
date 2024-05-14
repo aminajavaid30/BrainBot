@@ -55,8 +55,7 @@ if "temp_img_path" in st.session_state and st.session_state['uploaded_image'] ==
 
     try:
         # Send POST request to a FastAPI endpoint with temporary image path
-        # FASTAPI_URL = f"http://localhost:8000/image/{llm}"
-        FASTAPI_URL = f"https://huggingface.co/spaces/aminaj/BrainBot/image/{llm}"
+        FASTAPI_URL = f"http://localhost:8000/image/{llm}"
         
         with st.spinner("Interpreting image..."):
             response = requests.post(FASTAPI_URL, json={"image_path": temp_img_path})
@@ -71,4 +70,4 @@ if "temp_img_path" in st.session_state and st.session_state['uploaded_image'] ==
                 st.markdown(formatted_response)
     except Exception as e:
         log_error(str(e))
-        st.switch_page("pages/error.py")
+        st.switch_page("error.py")
