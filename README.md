@@ -73,7 +73,7 @@ To build and run the Docker container, follow these steps:
 6. The API documentaion will be avaialable at `http://localhost:8000/docs` or `http://localhost:8000/redoc`
    
 ## Interacting with the API
-Once the application is running, you can interact with it through the Streamlit frontend. To interact with the API, yopu can send HTTP requests through Swagger UI.
+Once the application is running, you can interact with it through the Streamlit frontend. To interact with the API, you can send HTTP requests through Swagger UI.
 
 ## Acknowledgments
 This API was built with inspiration from various open-source projects and libraries. Special thanks to the developers and contributors of FastAPI, LangChain, OpenAI API, GROQ API, Docker, and Hugging Face.
